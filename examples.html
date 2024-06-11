@@ -88,22 +88,6 @@ function SPacketChat(pBot, packetIn) {
 }
 </code></pre>
 
-        <h3 id="example-AutoRP">AutoRP</h3>
-        <pre><code>
-function getName() {
-    return "Example";
-}
-
-function getAuthor() {
-    return "KrytickYT";
-}
-
-function SPacketResourcePackSend(pBot, packetIn) {
-    pBot.player.connection.sendPacket(new net.minecraft.network.play.client.CPacketResourcePackStatus(net.minecraft.network.play.client.CPacketResourcePackStatus.Action.ACCEPTED));
-    pBot.player.connection.sendPacket(new net.minecraft.network.play.client.CPacketResourcePackStatus(net.minecraft.network.play.client.CPacketResourcePackStatus.Action.SUCCESSFULLY_LOADED));
-}
-</code></pre>
-
         <h3 id="example-bettercaptcha">BetterCaptcha-Bypass</h3>
         <pre><code>
 var TimerUtil = function() {
