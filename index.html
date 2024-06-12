@@ -121,9 +121,9 @@ function onUpdate(pBot) {
 <pre><code>
 function tutorial() {
     ScriptAPI.sendMessage(msg);     //Отправит в чат сообщение, можно использовать для дебага
-    var pasred = ScriptAPI.parsePlaceholders("%n");     //Использование тех же плейсхолдеров, что и в командах ботов
-    var = randomPlayer = ScriptAPI.getRandomTabPlayer()     //Получает ник рандомного игрока из таба
-    var clean = ScriptAPI.stripColor("§c§lExample");     //Чистит строку цветовых знаков
+    var placeholder = ScriptAPI.parsePlaceholders("%n");     //Использование тех-же плейсхолдеров, что и в командах ботов
+    var randomPlayer = ScriptAPI.getRandomTabPlayer();     //Получает ник рандомного игрока из таба
+    var clean = ScriptAPI.stripColor("§c§lExample");     //Чистит строку от цветовых знаков
     var translateKey = ScriptAPI.translateItemKey("tile.thinStainedGlass.lime");     //Вернет реальное название предмета по ItemStack.item.getTranslationKey();
   
 }
