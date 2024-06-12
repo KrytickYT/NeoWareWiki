@@ -137,6 +137,32 @@ function onUpdate(pBot) {
     }
 }
 </code></pre>
+        <h3 id="example-bettercaptcha">Вводит команду через 1 секунду после авторизации</h3>
+        <p>В обнове будет нормальный ивент авторизации</p>
+        <pre><code>
+function getName() {
+    return "Example";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+var list = new java.util.HashMap();
+
+function onUpdate(pBot) {
+  if(pBot.isRegistered()) {
+        if(list.get(pBot.getNickname()) == false) {
+            java.lang.Thread.sleep(1000); //Оч опасное решение, лучше так не делать
+            list.put(pBot.getNickname(), true);
+            pBot.sendMessage("/shhhhhh");
+        }
+  }
+}
+function SPacketJoinGame(pBot) {
+    list.put(pBot.getNickname(), false);
+}
+</code></pre>
       </div>
     </article>
   </div>
