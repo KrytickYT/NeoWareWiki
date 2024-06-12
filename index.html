@@ -91,6 +91,30 @@ function getAuthor() {
             <p>pBot.stimer2</p>
             <p>pBot.stimer3</p>
             <p>Они ничем не заняты, поэтому их можно использовать как угодно.</p>
+<pre><code>
+//Пример использования таймеров бота
+function getName() {
+    return "Example";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function onUpdate(pBot) {
+    //Выполняется, при обновлении бота (20 тиков в сек.)
+    //Переменные от пакета:
+    //
+    //pBot (PBot)
+  
+    if(pBot.stimer1.hasReached(1000)) {     //Проверяем, прошла ли 1 секунда (1сек = 1000мс)
+        pBot.stimer1.reset();     //Сбрасываем таймер когда прошло время
+
+        //Тут будет ваш код
+    }
+    //Таймер для каждого бота идет свой, и они не будут мешать друг другу.
+}
+</code></pre>
           </div>
         </article>
       </div>
