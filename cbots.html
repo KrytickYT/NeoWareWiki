@@ -75,34 +75,39 @@
                 <h3 id="example-bettercaptcha">JavaScript</h3>
         <pre><code>
 pBot - Возращается любым ивентом. Это сам бот.
-pBot.getNickname() : (String) - Никнейм бота.
-pBot.jump() : (Void) - Заставляет подпрыгнуть бота.
-pBot.stopBot() : (Void) - Отключить и остановить бота.
-pBot.hasMap() : (Boolean) - Вернет true если у бота имеется карта в инвенторе.
-pBot.currentWindowID() : (Integer) - Вернет ID текущего меню.
-pBot.isOnline(slot:Integer) : (Void) - Установит слот в хотбаре.
-pBot.dropItem(slot:Integer) : (Void) - Выкинет предмет из инвентаря.
-pBot.sendMessage(msg:String) : (Void) - Отправить сообщение от бота.
-pBot.sendPacket(packet:MinecraftCPacket) : (Void) - Отправит пакет на сервер.
-pBot.useItem() : (Void) - Нажмет пкм по текущему предмету в хотбаре.
-pBot.windowClick(slot:Integer, mouseButton:Integer) : (Void) - Нажмет на предмет в текущем инвентаре.
-pBot.windowTitle : (String) - Вернет название текущего меню.
+
+String  | pBot.getNickname() - Никнейм бота.
+Void    | pBot.jump() - Заставляет подпрыгнуть бота.
+Void    | pBot.stopBot() - Отключить и остановить бота.
+Boolean | pBot.hasMap() - Вернет true если у бота имеется карта в инвенторе.
+Integer | pBot.currentWindowID() - Вернет ID текущего меню.
+Void    | pBot.isOnline(slot:Integer) - Установит слот в хотбаре.
+Void    | pBot.dropItem(slot:Integer) - Выкинет предмет из инвентаря.
+Void    | pBot.sendMessage(msg:String) - Отправить сообщение от бота.
+Void    | pBot.sendPacket(packet:MinecraftCPacket) - Отправит пакет на сервер.
+Void    | pBot.useItem() - Нажмет пкм по текущему предмету в хотбаре.
+Void    | pBot.windowClick(slot:Integer, mouseButton:Integer) - Нажмет на предмет в текущем инвентаре.
+String  | pBot.windowTitle - Вернет название текущего меню.
+
 ------------------------------------------------------------
-pBot.getWorld() : (PBotWorld) - Мир, в котором находится бот.
-pBot.getWorld().loadedEntityList : (List <>Entity>) - Список всех сущностей в мире.
-pBot.getWorld().getBlockState(BlockPos) : (IBlockState) - Получить блок по координатам.
-pBot.getWorld().getBlockState(BlockPos) : (IBlockState) - Получить блок по координатам.
+
+PBotWorld   | pBot.getWorld() - Мир, в котором находится бот.
+List        | pBot.getWorld().loadedEntityList<>Entity>) - Список всех сущностей в мире.
+IBlockState | pBot.getWorld().getBlockState(BlockPos) - Получить блок по координатам.
+IBlockState | pBot.getWorld().getBlockState(BlockPos) - Получить блок по координатам.
+
 ------------------------------------------------------------
-pBot.player : (PBotEntity) - Бот в виде PlayerEntity, координаты, инвентарь и т.д.
-pBot.player.openContainer : (Container) - Инвентарь бота.
-pBot.player.openContainer.getInventory() : (List <>ItemStack>) - Список предметов в инвентаре.
-pBot.player.openContainer.windowId : (Integer) - Вернет ID текущего меню.
-pBot.player.player.posX : (Double) - Координата X бота.
-pBot.player.player.posY : (Double) - Координата Y бота.
-pBot.player.player.posZ : (Double) - Координата Z бота.
-pBot.player.player.rotationYaw : (Float) - Yaw позиция камеры бота.
-pBot.player.player.rotationPitch : (Float) - Pitch позиция камеры бота.
-pBot.player.player.onGround : (Boolean) - Касание бота с землей.
+
+PBotEntity | pBot.player - Бот в виде PlayerEntity, координаты, инвентарь и т.д.
+Container  | pBot.player.openContainer - Инвентарь бота.
+List       | pBot.player.openContainer.getInventory()<>ItemStack>) - Список предметов в инвентаре.
+Integer    | pBot.player.openContainer.windowId - Вернет ID текущего меню.
+Double     | pBot.player.player.posX - Координата X бота.
+Double     | pBot.player.player.posY - Координата Y бота.
+Double     | pBot.player.player.posZ - Координата Z бота.
+Float      | pBot.player.player.rotationYaw - Yaw позиция камеры бота.
+Float      | pBot.player.player.rotationPitch - Pitch позиция камеры бота.
+Boolean    | pBot.player.player.onGround - Касание бота с землей.
 
 </code></pre>
             
