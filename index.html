@@ -128,6 +128,88 @@ function tutorial() {
   
 }
 </code></pre>
+            <h3 id="other">Использование HashMap</h3>
+            <p></p>
+<pre><code>
+// Импортируем класс HashMap из Java
+var HashMap = java.util.HashMap;
+
+// Создаем экземпляр объекта HashMap
+var myMap = new HashMap();
+
+// Добавление элементов в HashMap
+myMap.put("key1", "value1");
+myMap.put("key2", "value2");
+myMap.put("key3", "value3");
+
+// Получение значения по ключу
+var value1 = myMap.get("key1");
+print("value1 = " + value1); // Output: value1 = value1
+
+// Проверка наличия ключа
+var hasKey2 = myMap.containsKey("key2");
+print("Has key 'key2': " + hasKey2); // Output: Has key 'key2': true
+
+// Удаление элемента по ключу
+myMap.remove("key3");
+
+// Получение всех ключей и значений
+var keys = myMap.keySet();
+var values = myMap.values();
+
+print("Keys in map:");
+for (var it = keys.iterator(); it.hasNext(); ) {
+    print(it.next());
+}
+
+print("Values in map:");
+for (var it = values.iterator(); it.hasNext(); ) {
+    print(it.next());
+}
+
+// Проверка размера HashMap
+var size = myMap.size();
+print("Size of map: " + size); // Output: Size of map: 2
+</code></pre>
+            <h3 id="other">Использование ArrayList</h3>
+            <p></p>
+<pre><code>
+// Импортируем класс ArrayList из Java
+var ArrayList = java.util.ArrayList;
+
+// Создаем экземпляр объекта ArrayList
+var myList = new ArrayList();
+
+// Добавление элементов в ArrayList
+myList.add("element1");
+myList.add("element2");
+myList.add("element3");
+
+// Получение элемента по индексу
+var firstElement = myList.get(0);
+print("First element: " + firstElement); // Output: First element: element1
+
+// Удаление элемента по индексу
+myList.remove(1);
+
+// Итерация по элементам ArrayList
+print("Elements in list:");
+for (var i = 0; i < myList.size(); i++) {
+    print(myList.get(i));
+}
+
+// Проверка размера ArrayList
+var size = myList.size();
+print("Size of list: " + size); // Output: Size of list: 2
+
+// Проверка наличия элемента
+var containsElement2 = myList.contains("element2");
+print("Contains 'element2': " + containsElement2); // Output: Contains 'element2': false
+
+// Очистка списка
+myList.clear();
+print("Size of list after clear: " + myList.size()); // Output: Size of list after clear: 0
+</code></pre>
           </div>
         </article>
       </div>
