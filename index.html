@@ -115,6 +115,19 @@ function onUpdate(pBot) {
     //Таймер для каждого бота идет свой, и они не будут мешать друг другу.
 }
 </code></pre>
+            <h3 id="other">ScriptAPI</h3>
+            <p>ScriptAPI - встроенный набор инструментов для написания скриптов.</p>
+            <p></p>
+<pre><code>
+function tutorial() {
+    ScriptAPI.sendMessage(msg)     //Отправит в чат сообщение, можно использовать для дебага
+    var pasred = ScriptAPI.parsePlaceholders("%n");     //Использование тех же плейсхолдеров, что и в командах ботов
+    var = randomPlayer = ScriptAPI.getRandomTabPlayer()     //Получает ник рандомного игрока из таба
+    var clean = ScriptAPI.stripColor("§c§lExample");     //Чистит строку цветовых знаков
+    var translateKey = ScriptAPI.translateItemKey("tile.thinStainedGlass.lime");     //Вернет реальное название предмета по ItemStack.item.getTranslationKey();
+  
+}
+</code></pre>
           </div>
         </article>
       </div>
