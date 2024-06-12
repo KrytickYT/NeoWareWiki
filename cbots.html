@@ -81,18 +81,21 @@ Void    | pBot.jump() - Заставляет подпрыгнуть бота.
 Void    | pBot.stopBot() - Отключить и остановить бота.
 Boolean | pBot.hasMap() - Вернет true если у бота имеется карта в инвенторе.
 Integer | pBot.currentWindowID() - Вернет ID текущего меню.
-Void    | pBot.isOnline(slot:Integer) - Установит слот в хотбаре.
-Void    | pBot.dropItem(slot:Integer) - Выкинет предмет из инвентаря.
-Void    | pBot.sendMessage(msg:String) - Отправить сообщение от бота.
+Void    | pBot.isOnline(slot) - Установит слот в хотбаре.
+Void    | pBot.dropItem(slot) - Выкинет предмет из инвентаря.
+Void    | pBot.sendMessage(msg) - Отправить сообщение от бота.
 Void    | pBot.sendPacket(packet:MinecraftCPacket) - Отправит пакет на сервер.
 Void    | pBot.useItem() - Нажмет пкм по текущему предмету в хотбаре.
-Void    | pBot.windowClick(slot:Integer, mouseButton:Integer) - Нажмет на предмет в текущем инвентаре.
+Void    | pBot.windowClick(slot, mouseButton) - Нажмет на предмет в текущем инвентаре.
 String  | pBot.windowTitle - Вернет название текущего меню.
+Void    | pBot.changeSlot(slot) - Сменить активный слот в хотбаре.
+Void    | pBot.swapHands() - Положить предмет из правой руки в левую.
+Void    | pBot.reconnect() - Переподключить бота к серверу.
 
 ------------------------------------------------------------
 
 PBotWorld     | pBot.getWorld() - Мир, в котором находится бот.
-List<\Entity> | pBot.getWorld().loadedEntityList - Список всех сущностей в мире.
+List<.Entity> | pBot.getWorld().loadedEntityList - Список всех сущностей в мире.
 IBlockState   | pBot.getWorld().getBlockState(blockPos) - Получить блок по координатам.
 IBlockState   | pBot.getWorld().getBlockState(blockPos) - Получить блок по координатам.
 
@@ -100,7 +103,7 @@ IBlockState   | pBot.getWorld().getBlockState(blockPos) - Получить бл�
 
 PBotEntity       | pBot.player - Бот в виде PlayerEntity, координаты, инвентарь и т.д.
 Container        | pBot.player.openContainer - Инвентарь бота.
-List<\ItemStack> | pBot.player.openContainer.getInventory() - Список предметов в инвентаре.
+List<.ItemStack> | pBot.player.openContainer.getInventory() - Список предметов в инвентаре.
 Integer          | pBot.player.openContainer.windowId - Вернет ID текущего меню.
 Double           | pBot.player.player.posX - Координата X бота.
 Double           | pBot.player.player.posY - Координата Y бота.
@@ -108,6 +111,25 @@ Double           | pBot.player.player.posZ - Координата Z бота.
 Float            | pBot.player.player.rotationYaw - Yaw позиция камеры бота.
 Float            | pBot.player.player.rotationPitch - Pitch позиция камеры бота.
 Boolean          | pBot.player.player.onGround - Касание бота с землей.
+Boolean          | pBot.mc.gameSettings.keyBindForward.pressed - Управление движением вперед.
+Boolean          | pBot.mc.gameSettings.keyBindBack.pressed - Управление движением назад.
+Boolean          | pBot.mc.gameSettings.keyBindLeft.pressed - Управление движением влево.
+Boolean          | pBot.mc.gameSettings.keyBindRight.pressed - Управление движением вправо.
+Boolean          | pBot.mc.gameSettings.keyBindJump.pressed - Управление движением прыжок.
+Boolean          | pBot.mc.gameSettings.keyBindSneak.pressed - Управление приседанием.
+Boolean          | pBot.mc.gameSettings.keyBindSprint.pressed - Управление спиртом/бегом.
+
+
+Boolean          | pBot.player.isInWater() - Вернет true, если бот находится в воде
+Boolean          | pBot.player.isCreative() - Вернет true, если бот находится в Creative
+Boolean          | pBot.player.isSneaking() - Вернет true, если бот находится на шифте
+Boolean          | pBot.player.isInLava() - Вернет true, если бот находится в лаве
+Boolean          | pBot.player.isBurning() - Вернет true, если бот горит
+Boolean          | pBot.player.isSprinting() - Вернет true, если бот бежит
+Boolean          | pBot.player.isOnLadder() - Вернет true, если находится на лестнице
+Float            | pBot.player.getHealth() - Вернет кол-во здоровья у бота
+Integer          | pBot.player.experienceLevel - Вернет уроверь опыта у бота
+
 
 </code></pre>
             
