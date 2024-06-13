@@ -163,6 +163,26 @@ function SPacketJoinGame(pBot) {
     list.put(pBot.getNickname(), false);
 }
 </code></pre>
+        <h3 id="example-bettercaptcha">Авторешение примера из чата</h3>
+        <p>Подходят примеры по типу таких: 2+6, 10-5, 3*4, 12/3</p>
+        <pre><code>
+function getName() {
+    return "Example";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function SPacketChat(pBot, packetIn) {
+    var message = ScriptAPI.stripColor(packetIn.getChatComponent().getFormattedText());
+    var cleanedString = message.replace(/[^0-9\+\-\*\/]/g, '');
+    if(cleanedString.length >= 3) {
+        var result = eval(cleanedString);
+        pBot.sendMessage(result);
+    }
+}
+</code></pre>
       </div>
     </article>
   </div>
