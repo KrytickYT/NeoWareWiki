@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" xmlns:x-transition="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="NeoWareWiki/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Общее | NeoWare Wiki</title>
+    <meta name="description" content="NeoWare Script Wiki">
+    <link rel="stylesheet" href="/NeoWareWiki/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js" integrity="sha512-HcBl0GSJvt4Qecm4srHapirUx0HJDi2zYXm6KUKNNUGdTIN9cBwakVZHWmRVj4MKgy1AChqhWGYcMDbRKgO0zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body x-data="{ docs: false, mobile: false }" class="relative">
+<header @click.outside="mobile = false" class="sticky top-0 z-50 bg-white shadow-md shadow-slate-900/5 transition duration-500">
+    <div class="mx-auto max-w-7xl flex flex-wrap items-center space-x-8 justify-between px-6 lg:px-8 py-4">
+        <div class="flex items-center">
+            <button @click="docs = ! docs" type="button" class="relative lg:hidden mr-3" aria-label="Open navigation">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" class="h-6 w-6 stroke-slate-500">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+            <a aria-label="Home page" href="/NeoWareWiki/">
+                <p class="h-7 hidden sm:block">NeoWare Wiki</p>
+            </a>
+            <nav class="hidden lg:flex lg:space-x-8 lg:ml-12 xl:ml-16">
+                <a class='text-sm hover:text-sky-500 py-2.5 text-slate-900 font-display font-semibold' href='https://krytickyt.github.io/NeoWare/'>Главная</a>
+                <a class='text-sm hover:text-sky-500 py-2.5 text-slate-900 font-display font-semibold' href='https://discord.com/invite/2rxyndXyUB'>Discord</a>
+            </nav>
+        </div>
+    </div>
+</header>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js" integrity="sha512-HcBl0GSJvt4Qecm4srHapirUx0HJDi2zYXm6KUKNNUGdTIN9cBwakVZHWmRVj4MKgy1AChqhWGYcMDbRKgO0zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<div class="relative mx-auto flex max-w-7xl justify-center px-2 lg:px-8">
+    <div class="hidden lg:relative lg:block lg:flex-none">
+        <div class="sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] w-64 overflow-y-auto overflow-x-hidden pt-16 pl-0.5 pr-8 xl:w-72 xl:pr-16">
+            <nav class="text-sm">
+                <ul class="space-y-9">
+                    <li>
+                        <h2 class="font-display font-semibold text-slate-900">API</h2>
+                        <ul class="mt-4 space-y-4 border-slate-200">
+                            <li class="relative">
+                                <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-sky-500 before:bg-sky-500" href="/NeoWareWiki/">Общее</a>
+                            </li>
+                            <li class="relative">
+                                <a class='block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block' href='/NeoWareWiki/botapi.html'>Боты</a>
+                            </li>
+                            <li class="relative">
+                                <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block" href="/NeoWareWiki/commands.html">Команды</a>
+                            </li>
+                            <li class="relative">
+                                <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block" href="/NeoWareWiki/parameters.html">Параметры ботов</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2 class="font-display font-semibold text-slate-900">Code</h2>
+                        <ul class="mt-4 space-y-4 border-slate-200">
+                            <li class="relative">
+                                <a class='block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block' href='/NeoWareWiki/events.html'>Ивенты</a>
+                            </li>
+                            <li class="relative">
+                                <a class='block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block' href='/NeoWareWiki/examples.html'>Примеры</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="min-w-0 max-w-2xl flex-auto px-4 pt-16 lg:max-w-none lg:pl-8 lg:pr-0 xl:px-16">
+        <article>
+            <div class="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:font-semibold lg:prose-headings:scroll-mt-[8.5rem] prose-lead:text-slate-500 prose-a:font-semibold prose-a:no-underline prose-pre:rounded-xl prose-pre:bg-slate-900 prose-pre:shadow-lg">
+                <h2 id="info">Общее</h2>
+                <p>Используя скрипты, вы можете сделать почти что угодно, все ограничивается лишь вашей фантазией.</p>
+                <h3 id="structure">Структура кода</h3>
+                <p>Весь код пишется на JS (Rhino). Начало кода должно состоять из getName() и getAuthor(). Там содержится базовая информация о скрипте</p>
+                <pre>
+															<code>
+function getName() {
+    return "Example";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+</code>
+														</pre>
+                <p>В коде так-же может частично поддерживаться Java код, но с указанием полных Package. Не рекомендуется использовать из-за возможных багов.</p>
+                <h3 id="scripts">О скриптах</h3>
+                <p>При выполнении скрипта, он идет 1 для всех активных ботов. Есть множество ивентов для работы с ними.</p>
+                <p>Файл с вашим кодом должен выглядеть как filename.js Расширение обязательно!</p>
+                <h3 id="timers">Таймеры</h3>
+                <p>Чтоб не городить ужас с таймерами как в BetterCaptcha-bypass, можно использовать 3 встроенных таймера.</p>
+                <p>pBot.stimer1</p>
+                <p>pBot.stimer2</p>
+                <p>pBot.stimer3</p>
+                <p>Они ничем не заняты, поэтому их можно использовать как угодно.</p>
+                <pre>
+															<code>
+//Пример использования таймеров бота
+function getName() {
+    return "Example";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function onUpdate(pBot) {
+    //Выполняется, при обновлении бота (20 тиков в сек.)
+    //Переменные от пакета:
+    //
+    //pBot (PBot)
+
+    if(pBot.stimer1.hasReached(1000)) {     //Проверяем, прошла ли 1 секунда (1сек = 1000мс)
+        pBot.stimer1.reset();     //Сбрасываем таймер когда прошло время
+
+        //Тут будет ваш код
+    }
+    //Таймер для каждого бота идет свой, и они не будут мешать друг другу.
+}
+</code>
+														</pre>
+                <h3 id="scriptapi">ScriptAPI</h3>
+                <p>ScriptAPI - встроенный набор инструментов для написания скриптов.</p>
+                <p></p>
+                <pre>
+															<code>
+function tutorial() {
+    ScriptAPI.sendMessage("Hello World");     //Отправит в чат сообщение, можно использовать для дебага
+    var placeholder = ScriptAPI.parsePlaceholders("%n");     //Использование тех-же плейсхолдеров, что и в командах ботов
+    var randomPlayer = ScriptAPI.getRandomTabPlayer();     //Получает ник рандомного игрока из таба
+    var clean = ScriptAPI.stripColor("§c§lExample Text");     //Чистит строку от цветовых знаков
+    var translateKey = ScriptAPI.translateItemKey("tile.thinStainedGlass.lime");     //Вернет реальное название предмета по ItemStack.item.getTranslationKey();
+
+    var bots = ScriptAPI.getBots(); //Список всех ботов
+    var botsCount = bots.length; //Кол-во ботов
+    var pBot = bots[0]; //Получение отдельного бота
+
+    var distance = ScriptAPI.getDistance(0, 0, 0, 10, 10, 10); //Дистанция до координат: x1, y1, z1, x2, y2, z2
+    var normYaw = ScriptAPI.normalizeYaw(370); //Нормализация Yaw оси
+    var normPitch = ScriptAPI.normalizePitch(100); //Нормализация Pitch оси
+    var distanceToBot = ScriptAPI.getDistance(pBot, 0, 0, 0); //Дистанциядо бота: pBot, x, y, z
+    var hasSword = ScriptAPI.hasSword(pBot); //Имеет ли бот меч
+    var swordSlot = ScriptAPI.getSword(pBot); //Получить слот в котором лежит меч
+    var captchaColor = ScriptAPI.getColor(captcha, 0, 0); //Получить цвет в BufferedImage по координатам
+
+
+}
+</code>
+														</pre>
+            </div>
+        </article>
+    </div>
+    <footer>
+        <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 lg:px-8 lg:pt-28"></div>
+    </footer>
+</div>
+</body>
+</html>
