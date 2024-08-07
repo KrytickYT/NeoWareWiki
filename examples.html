@@ -77,7 +77,7 @@
         <article>
             <div class="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:font-semibold lg:prose-headings:scroll-mt-[8.5rem] prose-lead:text-slate-500 prose-a:font-semibold prose-a:no-underline prose-pre:rounded-xl prose-pre:bg-slate-900 prose-pre:shadow-lg">
                 <h2 id="example">Примеры кода</h2>
-                <h3 id="example-AutoRegister">AutoRegister</h3>
+                <h3 id="autoregister">AutoRegister</h3>
                 <pre>
 													<code>
 function getName() {
@@ -98,7 +98,7 @@ function SPacketChat(pBot, packetIn) {
 }
 </code>
 												</pre>
-                <h3 id="example-bettercaptcha">BetterCaptcha Bypass</h3>
+                <h3 id="bettercaptcha">BetterCaptcha Bypass</h3>
                 <pre>
 													<code>
 var TimerUtil = function() {
@@ -150,7 +150,7 @@ function onUpdate(pBot) {
 
 													</code>
 												</pre>
-                <h3 id="example-onregister">Вводит команду через 1 секунду после авторизации</h3>
+                <h3 id="onregister">Вводит команду через 1 секунду после авторизации</h3>
                 <p>В обнове будет нормальный ивент авторизации</p>
                 <pre>
 													<code>
@@ -200,7 +200,7 @@ function SPacketChat(pBot, packetIn) {
 }
 </code>
 												</pre>
-                <h3 id="example-forceminebypass">ForceMine Bypass</h3>
+                <h3 id="forcemine">ForceMine Bypass</h3>
                 <p>Обход Title капчи на сервере ForceMine</p>
                 <pre>
 													<code>
@@ -219,6 +219,33 @@ function SPacketTitle(pBot, packetIn) {
             if(message.length() == 5) {
                 pBot.sendMessage(message);
                 pBot.setParameter("title_captcha", true);
+                ScriptAPI.sendMessage("Бот &d&l" + pBot.getNickname() + " &f&lпрошёл антибот!");
+            }
+        }
+    }
+}
+</code>
+												</pre>
+                <h3 id="sonnerfun">SonnerFun Bypass</h3>
+                <p>Обход BossBar капчи на сервере SonnerFun</p>
+                <pre>
+													<code>
+function getName() {
+    return "SonnerFun Bypa$$";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function SPacketUpdateBossInfo(pBot, packetIn) {
+    if(pBot.getParameter("sonner_captcha") == null || pBot.getParameter("sonner_captcha") == false) {
+        if(packetIn.getOperation().name() == "UPDATE_NAME") {
+            var bossbar = packetIn.getName().getFormattedText();
+            if(bossbar.contains("tcha")) {
+                var captcha = bossbar.split("1§r§6")[1].split("§r")[0];
+                pBot.sendMessage("/captcha " + captcha);
+                pBot.setParameter("sonner_captcha", true);
                 ScriptAPI.sendMessage("Бот &d&l" + pBot.getNickname() + " &f&lпрошёл антибот!");
             }
         }
