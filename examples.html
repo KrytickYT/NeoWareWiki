@@ -253,6 +253,33 @@ function SPacketUpdateBossInfo(pBot, packetIn) {
 }
 </code>
 												</pre>
+                <h3 id="wisegrief">WiseGrief Bypass</h3>
+                <p>Обход Title капчи на сервере WiseGrief</p>
+                <pre>
+													<code>
+function getName() {
+    return "WiseGrief Bypa$$";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function SPacketTitle(pBot, packetIn) {
+    if(pBot.getParameter("title_captcha") == null || pBot.getParameter("title_captcha") == false) {
+        if(packetIn.type.toString() == "TITLE") {
+            var message = packetIn.message.getUnformattedText();
+            if(message.length() == 4) {
+                pBot.sendMessage(message);
+                pBot.setParameter("title_captcha", true);
+                ScriptAPI.sendMessage("Бот &d&l" + pBot.getNickname() + " &f&lпрошёл антибот!");
+            }
+        }
+    }
+}
+
+</code>
+												</pre>
             </div>
         </article>
     </div>
