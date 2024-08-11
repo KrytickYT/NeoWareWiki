@@ -201,7 +201,7 @@ function SPacketChat(pBot, packetIn) {
 </code>
 												</pre>
                 <h3 id="forcemine">ForceMine Bypass</h3>
-                <p>Обход Title капчи на сервере ForceMine</p>
+                <p>Обход Title капчи на сервере mc.ForceMine.net</p>
                 <pre>
 													<code>
 function getName() {
@@ -227,7 +227,7 @@ function SPacketTitle(pBot, packetIn) {
 </code>
 												</pre>
                 <h3 id="sonnerfun">SonnerFun Bypass</h3>
-                <p>Обход BossBar капчи на сервере SonnerFun</p>
+                <p>Обход BossBar капчи на сервере mc.SonnerFun.su</p>
                 <pre>
 													<code>
 function getName() {
@@ -254,7 +254,7 @@ function SPacketUpdateBossInfo(pBot, packetIn) {
 </code>
 												</pre>
                 <h3 id="wisegrief">WiseGrief Bypass</h3>
-                <p>Обход Title капчи на сервере WiseGrief</p>
+                <p>Обход Title капчи на сервере mc.WiseGrief.ru</p>
                 <pre>
 													<code>
 function getName() {
@@ -277,6 +277,39 @@ function SPacketTitle(pBot, packetIn) {
         }
     }
 }
+
+</code>
+												</pre>
+                <h3 id="dontcube">DontCube Bypass</h3>
+                <p>Обход ArmorStand капчи на сервере mc.DontCube.space</p>
+                <pre>
+													<code>
+function getName() {
+    return "DontCube Bypa$$";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function onUpdate(pBot) {
+    if(pBot.getParameter("armorstand_captcha") == null || pBot.getParameter("armorstand_captcha") == false) {
+        if(pBot.stimer1.hasReached(1000)) {
+            pBot.stimer1.reset();
+            var entityList = pBot.getWorld().loadedEntityList;
+            for(var index = 0; index < entityList.size(); index++) {
+                var entity = entityList.get(index);
+                var entityName = ScriptAPI.stripColor(entity.getName());
+                if(entityName.contains("Код") && entityName.contains(": ")) {
+                    pBot.sendMessage(entityName.split(": ")[1]);
+                    pBot.setParameter("armorstand_captcha", true);
+                    ScriptAPI.sendMessage("Бот &d&l" + pBot.getNickname() + " &f&lпрошёл антибот!");
+                }
+            }
+        }
+    }
+}
+
 
 </code>
 												</pre>
