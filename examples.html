@@ -313,6 +313,45 @@ function onUpdate(pBot) {
 
 </code>
 												</pre>
+                <h3 id="dontcube">MoonMC Bypass</h3>
+                <p>Обход капчи на сервере play.MoonMC.pro</p>
+		<p>Будет проходить и BetterCaptcha</p>
+                <pre>
+													<code>
+function getName() {
+    return "MoonParasha Bypa$$";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function onUpdate(pBot) {
+    if(pBot.getParameter("better_captcha") == null || pBot.getParameter("better_captcha") == false) {
+        if(pBot.windowTitle != null && ScriptAPI.stripColor(pBot.windowTitle).contains("НА ")) {
+            for(var slot = 0; slot < pBot.player.openContainer.getInventory().size(); slot++) {
+                if(pBot.stimer1.hasReached(1000)) {
+                    var window = ScriptAPI.stripColor(pBot.windowTitle.toLowerCase()).split("на ")[1];
+                    var item = ScriptAPI.stripColor(pBot.player.openContainer.getInventory().get(slot).getDisplayName()).toLowerCase();
+                    if(window.equals(item)) {
+                        pBot.windowClick(slot, 0);
+                        pBot.stimer1.reset();
+                    }
+                }
+            }
+        }
+    }
+}
+
+function SPacketChat(pBot, packetIn) {
+    var message = ScriptAPI.stripColor(packetIn.getChatComponent().getFormattedText());
+    if(message.contains("Вы прошли проверку на бота")) { //Желательно заменить сообщение, если оно другое на сервере!
+        pBot.setParameter("better_captcha", true);
+        ScriptAPI.sendMessage("Бот &d&l" + pBot.getNickname() + " &f&lпрошёл антибот!");
+    }
+}
+</code>
+												</pre>
             </div>
         </article>
     </div>
