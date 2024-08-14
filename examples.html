@@ -353,6 +353,34 @@ function SPacketChat(pBot, packetIn) {
 }
 </code>
 												</pre>
+                <h3 id="nnbypass">SaiMine Bypass</h3>
+                <p>Обход говнокапчи на сервере saimine.gamepvp.ru</p>
+                <pre>
+													<code>
+function getName() {
+    return "Xueta Bypa$$";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function onUpdate(pBot, packetIn) {
+    if(pBot.getParameter("xueta_captcha") == null || pBot.getParameter("xueta_captcha") == false) {
+        if(pBot.windowTitle != null && pBot.windowTitle.contains("предмет где написано")) {
+            for(var slot = 0; slot < pBot.player.openContainer.getInventory().size(); slot++) {
+                var item = ScriptAPI.stripColor(pBot.player.openContainer.getInventory().get(slot).getDisplayName()).toLowerCase();
+                if(item.equals("жми")) {
+                    pBot.windowClick(slot, 0);
+                    pBot.setParameter("xueta_captcha", true);
+                    ScriptAPI.sendMessage("Бот &d&l" + pBot.getNickname() + " &f&lпрошёл антибот!");
+                }
+            }
+        }
+    }
+}
+</code>
+												</pre>
             </div>
         </article>
     </div>
