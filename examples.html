@@ -381,6 +381,32 @@ function onUpdate(pBot, packetIn) {
 }
 </code>
 												</pre>
+                <h3 id="bingogrief">BingoGrief Bypass</h3>
+                <p>Обход простой крафт капчи на сервере mc.bingogrief.ru</p>
+                <pre>
+													<code>
+function getName() {
+    return "BingoGrief Bypa$$";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function SPacketChat(pBot, packetIn) {
+    if(packetIn.getChatComponent().getFormattedText().contains("Скрафти верстак!")) {
+        pBot.windowClick(36, 0, ScriptAPI.getClickType("PICKUP"));
+        pBot.windowClick(-999, 4, ScriptAPI.getClickType("QUICK_CRAFT"));
+        pBot.windowClick(2, 5, ScriptAPI.getClickType("QUICK_CRAFT"));
+        pBot.windowClick(4, 5, ScriptAPI.getClickType("QUICK_CRAFT"));
+        pBot.windowClick(3, 5, ScriptAPI.getClickType("QUICK_CRAFT"));
+        pBot.windowClick(1, 5, ScriptAPI.getClickType("QUICK_CRAFT"));
+        pBot.windowClick(-999, 6, ScriptAPI.getClickType("QUICK_CRAFT"));
+        pBot.windowClick(0, 0, ScriptAPI.getClickType("QUICK_MOVE"));
+    }
+}
+</code>
+												</pre>
             </div>
         </article>
     </div>
