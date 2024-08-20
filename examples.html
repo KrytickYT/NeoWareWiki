@@ -407,6 +407,87 @@ function SPacketChat(pBot, packetIn) {
 }
 </code>
 												</pre>
+                <h3 id="actioncommand">ActionCommand</h3>
+                <p>Позволяет выполнять несколько действий одной командой</p>
+		<p>Команда .bots action i1 h1 d1   i - invclick, h - hotbar, d - delay (ms)</p>
+                <pre>
+													<code>
+var Thread = Java.type('java.lang.Thread');
+var Runnable = Java.type('java.lang.Runnable');
+
+function getName() {
+    return "ActionCommand";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function onCommand_action(args) {
+    if(ScriptAPI.getBots().length > 0) {
+        if(args.length > 1) {
+            var myRunnable = new Runnable({
+                run: function() {
+                    var bots = ScriptAPI.getBots();
+                    for (var i = 1; i < args.length; i++) {
+                        var action = args[i].toLowerCase();
+                        if(action.startsWith("i")) {
+                            var slot = action.split("i")[1];
+                            if (slot >= 0 && slot < 64) {
+                                for(var index = 0; index < bots.length; index++) {
+                                    var pBot = bots[index];
+                                    if(pBot.isOnline()) {
+                                        pBot.windowClick(slot, 0);    
+                                    }
+                                }
+                            } else {
+                                ScriptAPI.sendMessage("Неизвестное значение для InvClick: " + action);
+                            }
+                        } else if(action.startsWith("h")) {
+                            var slot = action.split("h")[1];
+                            if (slot >= 0 && slot < 9) {
+                                for(var index = 0; index < bots.length; index++) {
+                                    var pBot = bots[index];
+                                    if(pBot.isOnline()) {
+                                        pBot.changeSlot(slot);
+                                        pBot.useItem();
+                                    }
+                                }
+                            } else {
+                                ScriptAPI.sendMessage("Неизвестное значение для HotBar: " + action);
+                            }
+                        } else if(action.startsWith("d")) {
+                            var delay = action.split("d")[1];
+                            if (delay > 0) {
+                                if(delay <= 10000) {
+                                    Thread.sleep(delay);
+                                } else {
+                                    ScriptAPI.sendMessage("Задержка не может быть более 10 секунд!");
+                                }
+                            } else {
+                                ScriptAPI.sendMessage("Неизвестное значение для Delay: " + action);
+                            }
+                        } else {
+                            ScriptAPI.sendMessage("Неверный параметр: " + action);
+                        }
+                    }
+                }
+            });
+            var thread = new Thread(myRunnable);
+            thread.start();
+            thread.join();
+        } else {
+            ScriptAPI.sendMessage("Неверное использование! Правильно: .bots action i1 h2 d100");
+            ScriptAPI.sendMessage("i - Клик в инвентаре 0-63");
+            ScriptAPI.sendMessage("h - Клик по хотбару 0-8");
+            ScriptAPI.sendMessage("d - Задержка 0-10000мс");
+        }
+    } else {
+            ScriptAPI.sendMessage("У вас нет активных ботов!");
+    }
+}
+</code>
+												</pre>
             </div>
         </article>
     </div>
