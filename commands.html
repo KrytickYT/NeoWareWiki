@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="NeoWareWiki/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ивенты | NeoWare Wiki</title>
+    <title>Команды | NeoWare Wiki</title>
     <meta name="description" content="NeoWare Script Wiki">
     <link rel="stylesheet" href="/NeoWareWiki/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +54,9 @@
                             <li class="relative">
                                 <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block" href="/NeoWareWiki/parameters.html">Параметры ботов</a>
                             </li>
+                            <li class="relative">
+                                <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block" href="/NeoWareWiki/webapi.html">WebAPI</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -80,18 +83,16 @@
                 <p>Функционал скриптов позволяет создавать свои подкоманды в .bots.</p>
                 <p>Создать свою команду очень просто:</p>
                 <h3 id="example">Пример использования</h3>
-                <pre><code>
-function onCommand_test(args) {
-    //Выполняется при вводе команды .bots test
-    //Индексы аргументов:
-    //
-    //args[0] - Сама команда
-    //args[1-...] это ваши аргументы команды
-    ScriptAPI.sendMessage("TestCommand!");
-    ScriptAPI.sendMessage("command: " + args[0]); //test
-    ScriptAPI.sendMessage("arg-1: " + args[1]); //первый аргумент
-}
-</code></pre>
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">onCommand_test</span>(<span class="hljs-params">args</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется при вводе команды .bots test</span>
+    <span class="hljs-comment" style="color: grey;">//Индексы аргументов:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//args[0] - Сама команда</span>
+    <span class="hljs-comment" style="color: grey;">//args[1-...] это ваши аргументы команды</span>
+    ScriptAPI.sendMessage(<span class="hljs-string" style="color: rgb(106, 135, 89);">"TestCommand!"</span>);
+    ScriptAPI.sendMessage(<span class="hljs-string" style="color: rgb(106, 135, 89);">"command: "</span> + args[<span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>]); <span class="hljs-comment" style="color: grey;">//test</span>
+    ScriptAPI.sendMessage(<span class="hljs-string" style="color: rgb(106, 135, 89);">"arg-1: "</span> + args[<span class="hljs-number" style="color: rgb(104, 151, 187);">1</span>]); <span class="hljs-comment" style="color: grey;">//первый аргумент</span>
+}</pre>
                 <p>Важно! в onCommand_вашакоманда, команда должна быть вся написана с мальенких букв, иначе работать не будет!</p>
             </div>
         </article>

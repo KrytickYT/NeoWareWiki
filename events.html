@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="NeoWareWiki/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ивенты | NeoWare Wiki</title>
+  <title>Эвенты | NeoWare Wiki</title>
   <meta name="description" content="NeoWare Script Wiki">
   <link rel="stylesheet" href="/NeoWareWiki/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +54,9 @@
               <li class="relative">
                   <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block" href="/NeoWareWiki/parameters.html">Параметры ботов</a>
               </li>
+              <li class="relative">
+                  <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block" href="/NeoWareWiki/webapi.html">WebAPI</a>
+              </li>
             </ul>
           </li>
           <li>
@@ -79,104 +82,102 @@
         <h2 id="events">Ивенты</h2>
         <p>Для полноценной работы существуют ивенты ботов</p>
         <h3 id="example">Пример использования</h3>
-        <pre><code>
-function SPacketJoinGame(pBot, packetIn) {
-    //Выполняется, когда бот заходит на сервер
-    //Переменные от пакета:
-    //
-    //pBot (PBot) Бот
-    //packetIn.playerId (Integer) Айди бота в мире
-    //packetIn.hardcoreMode (Boolean) Режим хардкор мода
-    //packetIn.gameType (GameType) Игровой режим бота
-    //packetIn.dimension (Integer) Айди мира
-    //packetIn.difficulty (EnumDifficulty) Сложность игры в мире
-    //packetIn.maxPlayers (Integer) Максимальное количество игроков
-    //packetIn.worldType (WorldType) Тип мира
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketJoinGame</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется, когда бот заходит на сервер</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot) Бот</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.playerId (Integer) Айди бота в мире</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.hardcoreMode (Boolean) Режим хардкор мода</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.gameType (GameType) Игровой режим бота</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.dimension (Integer) Айди мира</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.difficulty (EnumDifficulty) Сложность игры в мире</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.maxPlayers (Integer) Максимальное количество игроков</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.worldType (WorldType) Тип мира</span>
 }
 
-function SPacketChat(pBot, packetIn) {
-    //Выполняется, когда приходит сообщение в чате у бота
-    //Переменные от пакета:
-    //
-    //pBot (PBot) Бот
-    //packetIn.chatComponent (ITextComponent) Сообщение в формате текст компонента
-    //packetIn.type (ChatType) Тип сообщения
-    //packetIn.getChatComponent().getFormattedText() (String) Сообщение в формате строки
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketChat</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется, когда приходит сообщение в чате у бота</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot) Бот</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.chatComponent (ITextComponent) Сообщение в формате текст компонента</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.type (ChatType) Тип сообщения</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.getChatComponent().getFormattedText() (String) Сообщение в формате строки</span>
 }
 
-function SPacketDisconnect(pBot, packetIn) {
-    //Выполняется, когда бот отключается
-    //Переменные от пакета:
-    //
-    //pBot (PBot) Бот
-    //packetIn.reason (ITextComponent) Причина в формате текст компонента
-    //packetIn.getReason().getFormattedText() (String) Причина в формате строки
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketDisconnect</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется, когда бот отключается</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot) Бот</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.reason (ITextComponent) Причина в формате текст компонента</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.getReason().getFormattedText() (String) Причина в формате строки</span>
 }
 
-function SPacketTitle(pBot, packetIn) {
-    //Выполняется, когда приходит Title сообщение
-    //Переменные от пакета:
-    //
-    //pBot (PBot) Бот
-    //packetIn.type (Type) Тип title уведомления
-    //packetIn.message (ITextComponent) Сообщение в формате текст компонента
-    //packetIn.fadeInTime (Integer)
-    //packetIn.displayTime (Integer)
-    //packetIn.fadeOutTime (Integer)
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketTitle</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется, когда приходит Title сообщение</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot) Бот</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.type (Type) Тип title уведомления</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.message (ITextComponent) Сообщение в формате текст компонента</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.fadeInTime (Integer)</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.displayTime (Integer)</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.fadeOutTime (Integer)</span>
 }
 
-function SPacketResourcePackSend(pBot, packetIn) {
-    //Выполняется, когда приходит запрос на скачку ресурспака
-    //Переменные от пакета:
-    //
-    //pBot (PBot) Бот
-    //packetIn.url (String) Ссылка на ресурспак
-    //packetIn.hash (String) Хеш код ресурспака
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketResourcePackSend</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется, когда приходит запрос на скачку ресурспака</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot) Бот</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.url (String) Ссылка на ресурспак</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.hash (String) Хеш код ресурспака</span>
 }
 
-function SPacketPlayerListHeaderFooter(pBot, tabHeader, tabFooter) {
-    //Выполняется, когда обновлется header и footer в табе
-    //Переменные от пакета:
-    //
-    //pBot (PBot) Бот
-    //tabHeader (String) Верхняя часть от таба
-    //tabFooter (String) Нижняя часть от таба
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketPlayerListHeaderFooter</span>(<span class="hljs-params">pBot, tabHeader, tabFooter</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется, когда обновлется header и footer в табе</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot) Бот</span>
+    <span class="hljs-comment" style="color: grey;">//tabHeader (String) Верхняя часть от таба</span>
+    <span class="hljs-comment" style="color: grey;">//tabFooter (String) Нижняя часть от таба</span>
 }
 
-function SPacketUpdateBossInfo(pBot, packetIn) {
-    //Выполняется, когда происходит обновление боссбара
-    //Переменные от пакета:
-    //
-    //pBot (PBot) Бот
-    //packetIn.getOperation().name() (String) Тип операции боссбара (add/update...)
-    //packetIn.getName().getUnformattedText() (String) Сообщение в формате строки
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketUpdateBossInfo</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется, когда происходит обновление боссбара</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot) Бот</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.getOperation().name() (String) Тип операции боссбара (add/update...)</span>
+    <span class="hljs-comment" style="color: grey;">//packetIn.getName().getUnformattedText() (String) Сообщение в формате строки</span>
 }
 
-function onCaptcha(pBot, captcha) {
-    //Выполняется, когда приходит капча
-    //Переменные от пакета:
-    //
-    //pBot (PBot) Бот
-    //captcha (BufferedImage) Сама капча, puzzle/default
-    //captcha.getWidth() (Integer) Ширина капчи
-    //captcha.getHeight() (Integer) Высота капчи
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">onCaptcha</span>(<span class="hljs-params">pBot, captcha</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется, когда приходит капча</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot) Бот</span>
+    <span class="hljs-comment" style="color: grey;">//captcha (BufferedImage) Сама капча, puzzle/default</span>
+    <span class="hljs-comment" style="color: grey;">//captcha.getWidth() (Integer) Ширина капчи</span>
+    <span class="hljs-comment" style="color: grey;">//captcha.getHeight() (Integer) Высота капчи</span>
 }
 
-function onAuth(pBot, password) {
-    //Выполняется, когда бот проходит авторизацию/регистрацию
-    //Переменные от пакета:
-    //
-    //pBot (PBot) Бот
-    //password (String) Пароль, который был использован
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">onAuth</span>(<span class="hljs-params">pBot, password</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется, когда бот проходит авторизацию/регистрацию</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot) Бот</span>
+    <span class="hljs-comment" style="color: grey;">//password (String) Пароль, который был использован</span>
 }
 
-function onUpdate(pBot) {
-    //Выполняется при тике бота (20 тиков в сек.)
-    //Переменные от пакета:
-    //
-    //pBot (PBot) Бот
-}
-</code></pre>
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">onUpdate</span>(<span class="hljs-params">pBot</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется при тике бота (20 тиков в сек.)</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot) Бот</span>
+}</pre>
       </div>
     </article>
   </div>

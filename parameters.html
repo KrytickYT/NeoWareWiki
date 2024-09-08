@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="NeoWareWiki/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ивенты | NeoWare Wiki</title>
+    <title>Параметры | NeoWare Wiki</title>
     <meta name="description" content="NeoWare Script Wiki">
     <link rel="stylesheet" href="/NeoWareWiki/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +54,9 @@
                             <li class="relative">
                                 <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-sky-500 before:bg-sky-500" href="/NeoWareWiki/parameters.html">Параметры ботов</a>
                             </li>
+                            <li class="relative">
+                                <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block" href="/NeoWareWiki/webapi.html">WebAPI</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -81,63 +84,53 @@
                 <p>Через них можно сделать сохранения своих данных из скриптов для дальнейшей обработки</p>
                 <p>Например, сохранять статус прохождения антибота у бота, и т.д.</p>
                 <h3 id="example">Пример использования</h3>
-                <pre><code>
-pbot.setParameter("test123", false);
-//test123 - Ваш параметр
-//false - Значение, оно может быть как Boolean/Integer/String и т.д.
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;">pbot.setParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"test123"</span>, <span class="hljs-literal" style="color: rgb(104, 151, 187);">false</span>);
+<span class="hljs-comment" style="color: grey;">//test123 - Ваш параметр</span>
+<span class="hljs-comment" style="color: grey;">//false - Значение, оно может быть как Boolean/Integer/String и т.д.</span>
 
-var return_p = pbot.getParameter("test123"); //Возвращает параметр по названию
-//test123 - Название параметра
-//return_p - Возвращаемое значение
-</code></pre>
+<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> return_p = pbot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"test123"</span>); <span class="hljs-comment" style="color: grey;">//Возвращает параметр по названию</span>
+<span class="hljs-comment" style="color: grey;">//test123 - Название параметра</span>
+<span class="hljs-comment" style="color: grey;">//return_p - Возвращаемое значение</span></pre>
                 <p>Благодаря JavaScript, можно забыть про типизацию данных, т.к. тут она не особо важна</p>
                 <p>Примечание! Вам нужно инициализировать параметр, т.к. если сделать запрос к несуществющему параметру, он выдаст NullPointerException</p>
                 <h3 id="initparams">Инициализация параметров прямо в коде</h3>
-                <pre><code>
-var bots = ScriptAPI.getBots();
-for(var index = 0; index < bots.length; index++) {
-    var pbot = bots[index];
-    pbot.setParameter("param", false);
-    //param - Ваш параметр
-    //false - Значение
-}
-</code></pre>
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> bots = ScriptAPI.getBots();
+<span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> index = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; index &lt; bots.length; index++) {
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> pbot = bots[index];
+    pbot.setParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"param"</span>, <span class="hljs-literal" style="color: rgb(104, 151, 187);">false</span>);
+    <span class="hljs-comment" style="color: grey;">//param - Ваш параметр</span>
+    <span class="hljs-comment" style="color: grey;">//false - Значение</span>
+}</pre>
                 <h3 id="defaults">Зарезервированные параметры бота</h3>
                 <p>Их так-же можно использовать, только знайте - установка неверных значений может привести к нестабильной работе ботов</p>
-                <pre><code>
-pbot.getParameter("authorization"); //Вернет true, если бот авторизирован на сервере
-pbot.getParameter("webdetected"); //Вернет true, если бот обнаружил вебкапчу
-pbot.getParameter("gameguardcheck"); //Вернет true, если бот прошел GameGuard антибот
-pbot.getParameter("captchadetected"); //Вернет true, если бот обнаружил капчу
-pbot.getParameter("anvilbypass"); //Вернет true, если бот прошел капчу в наковальне
-</code></pre>
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;">pbot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"authorization"</span>); <span class="hljs-comment" style="color: grey;">//Вернет true, если бот авторизирован на сервере</span>
+pbot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"webdetected"</span>); <span class="hljs-comment" style="color: grey;">//Вернет true, если бот обнаружил вебкапчу</span>
+pbot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"gameguardcheck"</span>); <span class="hljs-comment" style="color: grey;">//Вернет true, если бот прошел GameGuard антибот</span>
+pbot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"captchadetected"</span>); <span class="hljs-comment" style="color: grey;">//Вернет true, если бот обнаружил капчу</span>
+pbot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"anvilbypass"</span>); <span class="hljs-comment" style="color: grey;">//Вернет true, если бот прошел капчу в наковальне</span></pre>
                 <h3 id="examples">Примеры кода с параметрами</h3>
                 <p>Запись/Чтение параметров у всех ботов</p>
                 <p>.bots test set/list</p>
-                <pre><code>
-function onCommand_test(args) {
-    var bots = ScriptAPI.getBots();
-    if(args[1] == "set") {
-        for(var index = 0; index < bots.length; index++) {
-            var pbot = bots[index];
-            pbot.setParameter("test123", true);
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">onCommand_test</span>(<span class="hljs-params">args</span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> bots = ScriptAPI.getBots();
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(args[<span class="hljs-number" style="color: rgb(104, 151, 187);">1</span>] == <span class="hljs-string" style="color: rgb(106, 135, 89);">"set"</span>) {
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> index = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; index &lt; bots.length; index++) {
+            <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> pbot = bots[index];
+            pbot.setParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"test123"</span>, <span class="hljs-literal" style="color: rgb(104, 151, 187);">true</span>);
         }
-    } else if(args[1] == "list") {
-        for(var index = 0; index < bots.length; index++) {
-            var pbot = bots[index];
-            ScriptAPI.sendMessage(pbot.getParameter("test123"));
+    } <span class="hljs-keyword" style="color: rgb(204, 120, 50);">else</span> <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(args[<span class="hljs-number" style="color: rgb(104, 151, 187);">1</span>] == <span class="hljs-string" style="color: rgb(106, 135, 89);">"list"</span>) {
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> index = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; index &lt; bots.length; index++) {
+            <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> pbot = bots[index];
+            ScriptAPI.sendMessage(pbot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"test123"</span>));
         }
     }
-}
-</code></pre>
+}</pre>
                 <p>Получение статусов детекта вебкапчи у ботов</p>
-                <pre><code>
-var bots = ScriptAPI.getBots();
-    for(var index = 0; index < bots.length; index++) {
-        var pbot = bots[index];
-        ScriptAPI.sendMessage(pbot.getParameter("webdetected"));
-    }
-</code></pre>
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> bots = ScriptAPI.getBots();
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> index = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; index &lt; bots.length; index++) {
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> pbot = bots[index];
+        ScriptAPI.sendMessage(pbot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"webdetected"</span>));
+    }</pre>
                 <p></p>
                 <p></p>
             </div>

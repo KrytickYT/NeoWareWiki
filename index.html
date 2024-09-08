@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="NeoWareWiki/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Общее | NeoWare Wiki</title>
+    <title>Главная | NeoWare Wiki</title>
     <meta name="description" content="NeoWare Script Wiki">
     <link rel="stylesheet" href="/NeoWareWiki/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,6 +56,9 @@
                             <li class="relative">
                                 <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block" href="/NeoWareWiki/parameters.html">Параметры ботов</a>
                             </li>
+                            <li class="relative">
+                                <a class="block w-full pl-3.5 before:pointer-events-none before:absolute before:left-0.5 before:top-1/2 before:h-0.5 before:w-1.5 before:-translate-y-1/2 text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-900 hover:before:block" href="/NeoWareWiki/webapi.html">WebAPI</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -80,81 +83,67 @@
                 <p>Используя скрипты, вы можете сделать почти что угодно, все ограничивается лишь вашей фантазией.</p>
                 <h3 id="structure">Структура кода</h3>
                 <p>Весь код пишется на JS (Rhino). Начало кода должно состоять из getName() и getAuthor(). Там содержится базовая информация о скрипте</p>
-                <pre>
-															<code>
-function getName() {
-    return "Example";
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"Example"</span>;
 }
 
-function getAuthor() {
-    return "KrytickYT";
-}
-</code>
-														</pre>
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getAuthor</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"KrytickYT"</span>;
+}</pre>
                 <p>В коде так-же может частично поддерживаться Java код, но с указанием полных Package. Не рекомендуется использовать из-за возможных багов.</p>
                 <h3 id="scripts">О скриптах</h3>
                 <p>При выполнении скрипта, он идет 1 для всех активных ботов. Есть множество ивентов для работы с ними.</p>
                 <p>Файл с вашим кодом должен выглядеть как filename.js Расширение обязательно!</p>
                 <h3 id="timers">Таймеры</h3>
-                <p>Чтоб не городить ужас с таймерами как в BetterCaptcha-bypass, можно использовать 3 встроенных таймера.</p>
+                <p>Чтоб не делать ужас с таймерами как в BetterCaptcha-bypass, можно использовать 3 встроенных таймера.</p>
                 <p>pBot.stimer1</p>
                 <p>pBot.stimer2</p>
                 <p>pBot.stimer3</p>
                 <p>Они ничем не заняты, поэтому их можно использовать как угодно.</p>
-                <pre>
-															<code>
-//Пример использования таймеров бота
-function getName() {
-    return "Example";
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-comment" style="color: grey;">//Пример использования таймеров бота</span>
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"Example"</span>;
 }
 
-function getAuthor() {
-    return "KrytickYT";
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getAuthor</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"KrytickYT"</span>;
 }
 
-function onUpdate(pBot) {
-    //Выполняется, при обновлении бота (20 тиков в сек.)
-    //Переменные от пакета:
-    //
-    //pBot (PBot)
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">onUpdate</span>(<span class="hljs-params">pBot</span>) </span>{
+    <span class="hljs-comment" style="color: grey;">//Выполняется, при обновлении бота (20 тиков в сек.)</span>
+    <span class="hljs-comment" style="color: grey;">//Переменные от пакета:</span>
+    <span class="hljs-comment" style="color: grey;">//</span>
+    <span class="hljs-comment" style="color: grey;">//pBot (PBot)</span>
 
-    if(pBot.stimer1.hasReached(1000)) {     //Проверяем, прошла ли 1 секунда (1сек = 1000мс)
-        pBot.stimer1.reset();     //Сбрасываем таймер когда прошло время
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(pBot.stimer1.hasReached(<span class="hljs-number" style="color: rgb(104, 151, 187);">1000</span>)) {     <span class="hljs-comment" style="color: grey;">//Проверяем, прошла ли 1 секунда (1сек = 1000мс)</span>
+        pBot.stimer1.reset();     <span class="hljs-comment" style="color: grey;">//Сбрасываем таймер когда прошло время</span>
 
-        //Тут будет ваш код
+        <span class="hljs-comment" style="color: grey;">//Тут будет ваш код</span>
     }
-    //Таймер для каждого бота идет свой, и они не будут мешать друг другу.
-}
-</code>
-														</pre>
+    <span class="hljs-comment" style="color: grey;">//Таймер для каждого бота идет свой, и они не будут мешать друг другу.</span>
+}</pre>
                 <h3 id="scriptapi">ScriptAPI</h3>
                 <p>ScriptAPI - встроенный набор инструментов для написания скриптов.</p>
                 <p></p>
-                <pre>
-															<code>
-function tutorial() {
-    ScriptAPI.sendMessage("Hello World");     //Отправит в чат сообщение, можно использовать для дебага
-    var placeholder = ScriptAPI.parsePlaceholders("%n");     //Использование тех-же плейсхолдеров, что и в командах ботов
-    var randomPlayer = ScriptAPI.getRandomTabPlayer();     //Получает ник рандомного игрока из таба
-    var clean = ScriptAPI.stripColor("§c§lExample Text");     //Чистит строку от цветовых знаков
-    var translateKey = ScriptAPI.translateItemKey("tile.thinStainedGlass.lime");     //Вернет реальное название предмета по ItemStack.item.getTranslationKey();
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">tutorial</span>(<span class="hljs-params"></span>) </span>{
+    ScriptAPI.sendMessage(<span class="hljs-string" style="color: rgb(106, 135, 89);">"Hello World"</span>);     <span class="hljs-comment" style="color: grey;">//Отправит в чат сообщение, можно использовать для дебага</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> placeholder = ScriptAPI.parsePlaceholders(<span class="hljs-string" style="color: rgb(106, 135, 89);">"%n"</span>);     <span class="hljs-comment" style="color: grey;">//Использование тех-же плейсхолдеров, что и в командах ботов</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> randomPlayer = ScriptAPI.getRandomTabPlayer();     <span class="hljs-comment" style="color: grey;">//Получает ник рандомного игрока из таба</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> clean = ScriptAPI.stripColor(<span class="hljs-string" style="color: rgb(106, 135, 89);">"§c§lExample Text"</span>);     <span class="hljs-comment" style="color: grey;">//Чистит строку от цветовых знаков</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> translateKey = ScriptAPI.translateItemKey(<span class="hljs-string" style="color: rgb(106, 135, 89);">"tile.thinStainedGlass.lime"</span>);     <span class="hljs-comment" style="color: grey;">//Вернет реальное название предмета по ItemStack.item.getTranslationKey();</span>
 
-    var bots = ScriptAPI.getBots(); //Список всех ботов
-    var botsCount = bots.length; //Кол-во ботов
-    var pBot = bots[0]; //Получение отдельного бота
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> bots = ScriptAPI.getBots(); <span class="hljs-comment" style="color: grey;">//Список всех ботов</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> botsCount = bots.length; <span class="hljs-comment" style="color: grey;">//Кол-во ботов</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> pBot = bots[<span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>]; <span class="hljs-comment" style="color: grey;">//Получение отдельного бота</span>
 
-    var distance = ScriptAPI.getDistance(0, 0, 0, 10, 10, 10); //Дистанция до координат: x1, y1, z1, x2, y2, z2
-    var normYaw = ScriptAPI.normalizeYaw(370); //Нормализация Yaw оси
-    var normPitch = ScriptAPI.normalizePitch(100); //Нормализация Pitch оси
-    var distanceToBot = ScriptAPI.getDistance(pBot, 0, 0, 0); //Дистанция до бота: pBot, x, y, z
-    var hasSword = ScriptAPI.hasSword(pBot); //Имеет ли бот меч
-    var swordSlot = ScriptAPI.getSword(pBot); //Получить слот в котором лежит меч
-    var captchaColor = ScriptAPI.getColor(captcha, 0, 0); //Получить цвет в BufferedImage по координатам
-
-
-}
-</code>
-														</pre>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> distance = ScriptAPI.getDistance(<span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">10</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">10</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">10</span>); <span class="hljs-comment" style="color: grey;">//Дистанция до координат: x1, y1, z1, x2, y2, z2</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> normYaw = ScriptAPI.normalizeYaw(<span class="hljs-number" style="color: rgb(104, 151, 187);">370</span>); <span class="hljs-comment" style="color: grey;">//Нормализация Yaw оси</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> normPitch = ScriptAPI.normalizePitch(<span class="hljs-number" style="color: rgb(104, 151, 187);">100</span>); <span class="hljs-comment" style="color: grey;">//Нормализация Pitch оси</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> distanceToBot = ScriptAPI.getDistance(pBot, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>); <span class="hljs-comment" style="color: grey;">//Дистанция до бота: pBot, x, y, z</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> hasSword = ScriptAPI.hasSword(pBot); <span class="hljs-comment" style="color: grey;">//Имеет ли бот меч</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> swordSlot = ScriptAPI.getSword(pBot); <span class="hljs-comment" style="color: grey;">//Получить слот в котором лежит меч</span>
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> captchaColor = ScriptAPI.getColor(captcha, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>); <span class="hljs-comment" style="color: grey;">//Получить цвет в BufferedImage по координатам</span>
+}</pre>
             </div>
         </article>
     </div>
