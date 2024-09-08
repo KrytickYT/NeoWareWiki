@@ -488,6 +488,73 @@ function onCommand_action(args) {
 }
 </code>
 												</pre>
+                <h3 id="dynamitemc">DynamiteMC Bypass</h3>
+                <p>Обход чат капчи на сервере mc.dynamitemc.ru</p>
+                <pre>
+													<code>
+function getName() {
+    return "DynamiteMC";
+}
+
+function getAuthor() {
+    return "KrytickYT";
+}
+
+function SPacketChat(pBot, packetIn) {
+    var cleaned = ScriptAPI.stripColor(packetIn.getChatComponent().getFormattedText());
+    if(cleaned.contains("Введите слово") && cleaned.contains("в чат")) {
+        var word = cleaned.split("Введите слово ")[1].split(" ")[0];
+        var words = ['помидор', 'майнкрафт', 'картофель', 'бутерброд', 'морковка']; //Если есть другие слова, добавите сами
+        var similarWord = findMostSimilar(word, words);
+        pBot.sendMessage(similarWord);
+
+    }
+}
+
+function getLevenshteinDistance(a, b) {
+    var dp = [];
+    
+    for (var i = 0; i <= a.length; i++) {
+        dp[i] = [];
+        for (var j = 0; j <= b.length; j++) {
+            dp[i][j] = 0;
+        }
+    }
+    
+    for (i = 0; i <= a.length; i++) dp[i][0] = i;
+    for (j = 0; j <= b.length; j++) dp[0][j] = j;
+    
+    for (i = 1; i <= a.length; i++) {
+        for (j = 1; j <= b.length; j++) {
+            var cost = (a.charAt(i - 1) === b.charAt(j - 1)) ? 0 : 1;
+            dp[i][j] = Math.min(
+                dp[i - 1][j] + 1,
+                dp[i][j - 1] + 1,
+                dp[i - 1][j - 1] + cost
+            );
+        }
+    }
+    
+    return dp[a.length][b.length];
+}
+
+function findMostSimilar(word, wordList) {
+    var minDistance = Number.POSITIVE_INFINITY;
+    var mostSimilar = '';
+
+    for (var i = 0; i < wordList.length; i++) {
+        var candidate = wordList[i];
+        var distance = getLevenshteinDistance(word, candidate);
+        if (distance < minDistance) {
+            minDistance = distance;
+            mostSimilar = candidate;
+        }
+    }
+
+    return mostSimilar;
+}
+</code>
+												</pre>
             </div>
         </article>
     </div>
