@@ -519,6 +519,30 @@ TimerUtil.prototype.setTime = <span class="hljs-function"><span class="hljs-keyw
         pBot.mc.playerController.updateController();
     }
 }</pre>
+                <h3 id="wellmine">WellMine Bypass</h3>
+                <p>Обход капчи на сервере mc.wellmine.fun</p>
+		<p>Кликает на нужное сообщение для прохода проверки</p>
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"WellMine Bypass"</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getAuthor</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"KrytickYT"</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketChat</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> siblings = packetIn.getChatComponent().getSiblings();
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span> (<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> i = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; i &lt; siblings.size(); i++) {
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> component = siblings.get(i);
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(component.getStyle() != <span class="hljs-literal" style="color: rgb(104, 151, 187);">null</span> &amp;&amp; component.getStyle().getClickEvent() != <span class="hljs-literal" style="color: rgb(104, 151, 187);">null</span>) {
+            <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> clickEvent = component.getStyle().getClickEvent();
+            <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(clickEvent.getAction().toString().equals(<span class="hljs-string" style="color: rgb(106, 135, 89);">"RUN_COMMAND"</span>)) {
+                pBot.sendMessage(clickEvent.getValue());
+                <span class="hljs-keyword" style="color: rgb(204, 120, 50);">break</span>;
+            }
+        }
+    }
+}</pre>
             </div>
         </article>
     </div>
