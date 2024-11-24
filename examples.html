@@ -543,7 +543,42 @@ TimerUtil.prototype.setTime = <span class="hljs-function"><span class="hljs-keyw
         }
     }
 }</pre>
-            </div>
+                <h3 id="phantomworld">PhantomWorld Bypass</h3>
+                <p>Обход новой крафт капчи на сервере mc.PhantomWorld.pw</p>
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"PhantomWorld"</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getAuthor</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"KrytickYT"</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">onUpdate</span>(<span class="hljs-params">pBot</span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span> (pBot.windowTitle != <span class="hljs-literal" style="color: rgb(104, 151, 187);">null</span> &amp;&amp; pBot.windowTitle.contains(<span class="hljs-string" style="color: rgb(106, 135, 89);">"Crafting"</span>) &amp;&amp; pBot.stimer1.hasReached(<span class="hljs-number" style="color: rgb(104, 151, 187);">1000</span>)) {
+        pBot.stimer1.reset();
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> woodSlot = getWoodSlot(pBot);
+        pBot.windowClick(woodSlot, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"PICKUP"</span>));
+        pBot.windowClick(<span class="hljs-number" style="color: rgb(104, 151, 187);">-999</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">4</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"QUICK_CRAFT"</span>));
+        pBot.windowClick(<span class="hljs-number" style="color: rgb(104, 151, 187);">1</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">5</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"QUICK_CRAFT"</span>));
+        pBot.windowClick(<span class="hljs-number" style="color: rgb(104, 151, 187);">2</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">5</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"QUICK_CRAFT"</span>));
+        pBot.windowClick(<span class="hljs-number" style="color: rgb(104, 151, 187);">4</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">5</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"QUICK_CRAFT"</span>));
+        pBot.windowClick(<span class="hljs-number" style="color: rgb(104, 151, 187);">5</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">5</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"QUICK_CRAFT"</span>));
+        pBot.windowClick(<span class="hljs-number" style="color: rgb(104, 151, 187);">-999</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">6</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"QUICK_CRAFT"</span>));
+        pBot.windowClick(<span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"QUICK_MOVE"</span>));
+        pBot.closeWindow();
+    }
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getWoodSlot</span>(<span class="hljs-params">pBot</span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> slot = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; slot &lt; pBot.player.openContainer.getInventory().size(); slot++) {
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(pBot.player.openContainer.getInventory().get(slot).getTranslationKey().equals(<span class="hljs-string" style="color: rgb(106, 135, 89);">"tile.wood.oak"</span>))
+            <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> slot;
+    }
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-number" style="color: rgb(104, 151, 187);">-1</span>;
+}</pre>
+	
+        </div>
         </article>
     </div>
     <footer>
