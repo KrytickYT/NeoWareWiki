@@ -622,6 +622,49 @@
     <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"API_Failed_Exception"</span>;
 }
 </pre>
+                <h3 id="freedon">FreeDon Bypass</h3>
+                <p>Обход чат капчи(решение примера) на сервере mc.FreeDon.su</p>
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"FreeDon Bypass"</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getAuthor</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"KrytickYT"</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketChat</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(pBot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"math_state"</span>) == <span class="hljs-literal" style="color: rgb(104, 151, 187);">null</span> || pBot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"math_state"</span>) == <span class="hljs-literal" style="color: rgb(104, 151, 187);">false</span>) {
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> message = ScriptAPI.stripColor(packetIn.getChatComponent().getFormattedText());
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(message.contains(<span class="hljs-string" style="color: rgb(106, 135, 89);">"    "</span>)) {
+            <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(pBot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"math"</span>) == <span class="hljs-literal" style="color: rgb(104, 151, 187);">null</span>) {
+                pBot.setParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"math"</span>, message);
+            } <span class="hljs-keyword" style="color: rgb(204, 120, 50);">else</span> {
+                pBot.setParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"math"</span>, mergeStrings(message, pBot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"math"</span>)))
+            }
+        }
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> math = pBot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"math"</span>);
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(message.contains(<span class="hljs-string" style="color: rgb(106, 135, 89);">"Введите ответ на пример в чат"</span>)) {
+            <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> clMath = math.replace(<span class="hljs-regexp">/[^0-9\+\-\*\/]/g</span>, <span class="hljs-string" style="color: rgb(106, 135, 89);">''</span>);
+            <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(clMath.length &gt;= <span class="hljs-number" style="color: rgb(104, 151, 187);">3</span>) {
+                pBot.sendMessage(<span class="hljs-built_in">eval</span>(clMath));
+                pBot.setParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"math"</span>, <span class="hljs-string" style="color: rgb(106, 135, 89);">""</span>);
+                pBot.setParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"math_state"</span>, <span class="hljs-literal" style="color: rgb(104, 151, 187);">true</span>);
+            }
+        }
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">mergeStrings</span>(<span class="hljs-params">str1, str2</span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> arr1 = str1.split(<span class="hljs-string" style="color: rgb(106, 135, 89);">''</span>);
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> arr2 = str2.split(<span class="hljs-string" style="color: rgb(106, 135, 89);">''</span>);
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> minLength = <span class="hljs-built_in">Math</span>.min(arr1.length, arr2.length);
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span> (<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> i = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; i &lt; minLength; i++) {
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span> (arr1[i] === <span class="hljs-string" style="color: rgb(106, 135, 89);">' '</span> &amp;&amp; arr2[i] !== <span class="hljs-string" style="color: rgb(106, 135, 89);">' '</span>) {
+            arr1[i] = arr2[i];
+        }
+    }
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> arr1.join(<span class="hljs-string" style="color: rgb(106, 135, 89);">''</span>);
+}</pre>
         </div>
         </article>
     </div>
