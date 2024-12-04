@@ -613,7 +613,7 @@
                         .data(<span class="hljs-string" style="color: rgb(106, 135, 89);">"vernet"</span>, <span class="hljs-string" style="color: rgb(106, 135, 89);">"14"</span>)
                         .post();
         <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> s = post.text();
-        Thread.sleep(<span class="hljs-number" style="color: rgb(104, 151, 187);">4</span>);
+        Thread.sleep(<span class="hljs-number" style="color: rgb(104, 151, 187);">4000</span>);
         <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> get = Jsoup.connect(<span class="hljs-string" style="color: rgb(106, 135, 89);">"http://example.com/res.php?key=4ef6nrry&amp;action=get&amp;id="</span> + s.split(<span class="hljs-string" style="color: rgb(106, 135, 89);">"|"</span>)[<span class="hljs-number" style="color: rgb(104, 151, 187);">1</span>]).get();
         <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> out = get.text();
         <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(out.contains(<span class="hljs-string" style="color: rgb(106, 135, 89);">"OK|"</span>))
