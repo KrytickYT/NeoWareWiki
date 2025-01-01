@@ -212,22 +212,22 @@
 }</pre>
                 <h3 id="nnbypass">SaiMine Bypass</h3>
                 <p>Обход говнокапчи на сервере saimine.gamepvp.ru</p>
-<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span><span class="hljs-params">()</span> </span>{
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"Xueta Bypa$$"</span>;
 }
 
-<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getAuthor</span><span class="hljs-params">()</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getAuthor</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"KrytickYT"</span>;
 }
 
-<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">onUpdate</span><span class="hljs-params">(pBot, packetIn)</span> </span>{
-    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(pBot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"xueta_captcha"</span>) == <span class="hljs-keyword" style="color: rgb(204, 120, 50);">null</span> || pBot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"xueta_captcha"</span>) == <span class="hljs-keyword" style="color: rgb(204, 120, 50);">false</span>) {
-        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(pBot.windowTitle != <span class="hljs-keyword" style="color: rgb(204, 120, 50);">null</span> &amp;&amp; pBot.windowTitle.contains(<span class="hljs-string" style="color: rgb(106, 135, 89);">"предмет где написано"</span>)) {
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">onUpdate</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(pBot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"xueta_captcha"</span>) == <span class="hljs-literal" style="color: rgb(104, 151, 187);">null</span> || pBot.getParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"xueta_captcha"</span>) == <span class="hljs-literal" style="color: rgb(104, 151, 187);">false</span>) {
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(pBot.windowTitle != <span class="hljs-literal" style="color: rgb(104, 151, 187);">null</span> &amp;&amp; pBot.windowTitle.contains(<span class="hljs-string" style="color: rgb(106, 135, 89);">"предмет где написано"</span>)) {
             <span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> slot = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; slot &lt; pBot.player.openContainer.getInventory().size(); slot++) {
                 <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> item = ScriptAPI.stripColor(pBot.player.openContainer.getInventory().get(slot).getDisplayName()).toLowerCase();
                 <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(item.equals(<span class="hljs-string" style="color: rgb(106, 135, 89);">"жми"</span>)) {
-                    pBot.windowClick(slot, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>);
-                    pBot.setParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"xueta_captcha"</span>, <span class="hljs-keyword" style="color: rgb(204, 120, 50);">true</span>);
+                    pBot.windowClick(slot, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"PICKUP"</span>));
+                    pBot.setParameter(<span class="hljs-string" style="color: rgb(106, 135, 89);">"xueta_captcha"</span>, <span class="hljs-literal" style="color: rgb(104, 151, 187);">true</span>);
                     ScriptAPI.sendMessage(<span class="hljs-string" style="color: rgb(106, 135, 89);">"Бот &amp;d&amp;l"</span> + pBot.getNickname() + <span class="hljs-string" style="color: rgb(106, 135, 89);">" &amp;f&amp;lпрошёл антибот!"</span>);
                 }
             }
@@ -284,7 +284,7 @@
                                 <span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> index = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; index &lt; bots.length; index++) {
                                     <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> pBot = bots[index];
                                     <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(pBot.isOnline()) {
-                                        pBot.windowClick(slot, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>);    
+                                        pBot.windowClick(slot, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"PICKUP"</span>));    
                                     }
                                 }
                             } <span class="hljs-keyword" style="color: rgb(204, 120, 50);">else</span> {
@@ -507,7 +507,7 @@
             <span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span> (<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> slot = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; slot &lt; pBot.player.openContainer.getInventory().size(); slot++) {
                 <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> item = ScriptAPI.translateItemKey(pBot.player.openContainer.getInventory().get(slot).getTranslationKey());
                 <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(item.equals(needItem)) {
-                    pBot.windowClick(slot, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>);
+                    pBot.windowClick(slot, <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>, ScriptAPI.getClickType(<span class="hljs-string" style="color: rgb(106, 135, 89);">"PICKUP"</span>));
                     <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span>;
                 }
             }
@@ -569,59 +569,7 @@
     }
 
     <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> mostSimilar;
-}
-</pre>
-                <h3 id="customapi">CustomAPI Solver</h3>
-                <p>Дает возможность использовать другие API для решения капч</p>
-                <p>которые эмулируют такие сервисы как CapGuru/RuCaptcha</p>
-                <p>Для использования замените example.com на ваш API</p>
-<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> ImageIO = Java.type(<span class="hljs-string" style="color: rgb(106, 135, 89);">'javax.imageio.ImageIO'</span>);
-<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> ByteArrayOutputStream = Java.type(<span class="hljs-string" style="color: rgb(106, 135, 89);">'java.io.ByteArrayOutputStream'</span>);
-<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> Base64 = Java.type(<span class="hljs-string" style="color: rgb(106, 135, 89);">'java.util.Base64'</span>);
-<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> Jsoup = Java.type(<span class="hljs-string" style="color: rgb(106, 135, 89);">'org.jsoup.Jsoup'</span>);
-<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> Thread = Java.type(<span class="hljs-string" style="color: rgb(106, 135, 89);">'java.lang.Thread'</span>);
-
-<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"CustomAPI Solver"</span>;
-}
-
-<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getAuthor</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"KrytickYT"</span>;
-}
-
-<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">onCaptcha</span>(<span class="hljs-params">pBot, captcha</span>) </span>{
-    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> answer = sendAPI(captcha);
-    ScriptAPI.sendMessage(<span class="hljs-string" style="color: rgb(106, 135, 89);">"Ответ от AI: "</span> + answer);
-    pBot.sendMessage(answer);
-}
-
-
-<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">imageToBase64</span>(<span class="hljs-params">image</span>) </span>{
-    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> byteArrayOutputStream = <span class="hljs-keyword" style="color: rgb(204, 120, 50);">new</span> ByteArrayOutputStream();
-    ImageIO.write(image, <span class="hljs-string" style="color: rgb(106, 135, 89);">"png"</span>, byteArrayOutputStream);
-    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
-}
-
-
-<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">sendAPI</span>(<span class="hljs-params">image</span>) </span>{
-    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">try</span> {
-        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> base64 = imageToBase64(image);
-        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> post = Jsoup.connect(<span class="hljs-string" style="color: rgb(106, 135, 89);">"http://example.com/in.php"</span>)
-                        .data(<span class="hljs-string" style="color: rgb(106, 135, 89);">"key"</span>, <span class="hljs-string" style="color: rgb(106, 135, 89);">"4ef6nrry"</span>)
-                        .data(<span class="hljs-string" style="color: rgb(106, 135, 89);">"method"</span>, <span class="hljs-string" style="color: rgb(106, 135, 89);">"base64"</span>)
-                        .data(<span class="hljs-string" style="color: rgb(106, 135, 89);">"body"</span>, base64)
-                        .data(<span class="hljs-string" style="color: rgb(106, 135, 89);">"vernet"</span>, <span class="hljs-string" style="color: rgb(106, 135, 89);">"14"</span>)
-                        .post();
-        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> s = post.text();
-        Thread.sleep(<span class="hljs-number" style="color: rgb(104, 151, 187);">4000</span>);
-        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> get = Jsoup.connect(<span class="hljs-string" style="color: rgb(106, 135, 89);">"http://example.com/res.php?key=4ef6nrry&amp;action=get&amp;id="</span> + s.split(<span class="hljs-string" style="color: rgb(106, 135, 89);">"|"</span>)[<span class="hljs-number" style="color: rgb(104, 151, 187);">1</span>]).get();
-        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> out = get.text();
-        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(out.contains(<span class="hljs-string" style="color: rgb(106, 135, 89);">"OK|"</span>))
-            <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> out.split(<span class="hljs-string" style="color: rgb(106, 135, 89);">"|"</span>)[<span class="hljs-number" style="color: rgb(104, 151, 187);">1</span>];
-    } <span class="hljs-keyword" style="color: rgb(204, 120, 50);">catch</span> (exception) {}
-    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"API_Failed_Exception"</span>;
-}
-</pre>
+}</pre>
                 <h3 id="freedon">FreeDon Bypass</h3>
                 <p>Обход чат капчи(решение примера) на сервере mc.FreeDon.su</p>
 <pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span>(<span class="hljs-params"></span>) </span>{
