@@ -613,6 +613,49 @@
     }
     <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> arr1.join(<span class="hljs-string" style="color: rgb(106, 135, 89);">''</span>);
 }</pre>
+                <h3 id="griefcube">GriefCube Bypass</h3>
+                <p>Обход чат капчи на сервере mc.GriefCube.su</p>
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"GriefCube Bypa$$"</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getAuthor</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"KrytickYT"</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketChat</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> cleaned = ScriptAPI.stripColor(packetIn.getChatComponent().getFormattedText());
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(cleaned.contains(<span class="hljs-string" style="color: rgb(106, 135, 89);">" - "</span>) &amp;&amp; cleaned.contains(<span class="hljs-string" style="color: rgb(106, 135, 89);">"в чат"</span>)) {
+        pBot.sendMessage(cleaned.split(<span class="hljs-string" style="color: rgb(106, 135, 89);">" - "</span>)[<span class="hljs-number" style="color: rgb(104, 151, 187);">1</span>]);
+    }
+}</pre>
+                <h3 id="vayland">VayLand Bypass</h3>
+                <p>Обход чат капчи + рег на сервере mc.VayLand.net</p>
+<pre class="hljs" style="color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;"><span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getName</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"VayLand Bypa$$"</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">getAuthor</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> <span class="hljs-string" style="color: rgb(106, 135, 89);">"KrytickYT"</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">SPacketChat</span>(<span class="hljs-params">pBot, packetIn</span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> cleaned = ScriptAPI.stripColor(packetIn.getChatComponent().getFormattedText());
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">if</span>(cleaned.contains(<span class="hljs-string" style="color: rgb(106, 135, 89);">"Ваша капча » "</span>)) {
+        pBot.sendMessage(<span class="hljs-string" style="color: rgb(106, 135, 89);">"/register "</span> + randomString(<span class="hljs-number" style="color: rgb(104, 151, 187);">7</span>) + <span class="hljs-string" style="color: rgb(106, 135, 89);">" "</span> + cleaned.split(<span class="hljs-string" style="color: rgb(106, 135, 89);">"Ваша капча » "</span>)[<span class="hljs-number" style="color: rgb(104, 151, 187);">1</span>]);
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(204, 120, 50);">function</span> <span class="hljs-title" style="color: rgb(255, 198, 109);">randomString</span>(<span class="hljs-params">length</span>) </span>{
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> characters = <span class="hljs-string" style="color: rgb(106, 135, 89);">'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'</span>;
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> result = <span class="hljs-string" style="color: rgb(106, 135, 89);">''</span>;
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">for</span> (<span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> i = <span class="hljs-number" style="color: rgb(104, 151, 187);">0</span>; i &lt; length; i++) {
+        <span class="hljs-keyword" style="color: rgb(204, 120, 50);">var</span> randomIndex = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * characters.length);
+        result += characters.charAt(randomIndex);
+    }
+    <span class="hljs-keyword" style="color: rgb(204, 120, 50);">return</span> result;
+}
+</pre>
         </div>
         </article>
     </div>
